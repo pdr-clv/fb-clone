@@ -6,9 +6,9 @@ const Posts = () => {
   //const { profilePic, image, username, timestamp, message } = postData;
   return (
     <div>
-      <PostItem
-        {...postData}
-      ></PostItem>
+      {postData.map((element,key) => 
+        <PostItem key={ key } {...element}/>)
+      }  
     </div>
   )
 };

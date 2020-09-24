@@ -69,7 +69,6 @@ export const MessageSenderBottom = styled.div`
 `;
 
 export const AvatarPic = styled(Avatar)`
-  border: 3px solid #2e81f4;
 `;
 
 export const VideocamPic = styled(VideocamIcon)`
