@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const SideBarStyles = styled.div`
-  display:flex;
-  flex-direction:column;
+  padding: 25px 10px;
+  flex: 0.33;
 `;
 
 export const SideBarRowStyles = styled.div`
