@@ -1,68 +1,65 @@
 import React, { useState } from 'react';
+import { Avatar } from '@material-ui/core';
 
-
-import { MessageSenderStyles,
+import {
+  MessageSenderStyles,
   MessageSenderHeader,
   MessageSenderBottom,
-  AvatarPic,
   VideocamPic,
   PhotoLibraryPic,
-  InsertEmoticonPic
+  InsertEmoticonPic,
 } from './messageSender.styles';
 
 const MessageSender = () => {
-
   const [input, setInput] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     //we will set backEnd features.
+    console.log('Submitting....');
 
     setInput('');
     setImgUrl('');
   };
+
   return (
     <MessageSenderStyles>
       <MessageSenderHeader>
-        <AvatarPic />
+        <Avatar src='https://res.cloudinary.com/dg5pircnj/image/upload/v1597479069/PortfolioApp/profile-picture_wneqqc.jpg' />
         <form>
-          <input 
-            value = { input }
-            onChange = {(e) => setInput(e.target.value)}
-            placeholder= "What's on your mind?"
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="What's on your mind?"
           />
-          <input 
-            value = { imgUrl }
-            onChange = {(e) => setImgUrl(e.target.value)}
-            placeholder= 'Image URL'
+          <input
+            value={imgUrl}
+            placeholder='Paste here the url where img is '
+            onChange={(e) => setImgUrl(e.target.value)}
           />
-          <button onClick= {handleSubmit} type='submit'>Hidden submit</button>
-        </form>  
+          <button onClick={handleSubmit} type='submit'>
+            Hidden submit
+          </button>
+        </form>
       </MessageSenderHeader>
       <MessageSenderBottom>
         <div>
           <VideocamPic />
-          <h3>
-            Live Video
-          </h3>
+          <h3>Live Video</h3>
         </div>
         <div>
           <PhotoLibraryPic />
-          <h3>
-            Photo/Video
-          </h3>
+          <h3>Photo/Video</h3>
         </div>
         <div>
           <InsertEmoticonPic />
-          <h3>
-            Feeling/Activity
-          </h3>
+          <h3>Feeling/Activity</h3>
         </div>
       </MessageSenderBottom>
     </MessageSenderStyles>
-  )
+  );
 };
 
 export default MessageSender;

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { IconButton } from '@material-ui/core';
 
 export const HeaderStyles = styled.div`
   padding: 15px 20px;
@@ -7,9 +9,8 @@ export const HeaderStyles = styled.div`
   position: sticky;
   background-color: white;
   z-index: 100;
-  /* box shadow */
   top: 0;
-  box-shadow: 0px 5px 8px -9px rgba(0,0,0,0.75);
+  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 `;
 
 export const HeaderLeft = styled.div`
@@ -21,13 +22,13 @@ export const HeaderLeft = styled.div`
 `;
 
 export const HeaderInput = styled.div`
-  display:flex;
+  display: flex;
   align-items: center;
   background-color: #eff2f5;
   padding: 10px;
   margin-left: 10px;
   border-radius: 999px;
-  
+
   input {
     border: none;
     background-color: transparent;
@@ -36,24 +37,22 @@ export const HeaderInput = styled.div`
 `;
 
 export const IconMiddle = styled.div`
-
   display: flex;
   align-items: center;
   padding: 0 30px;
   cursor: pointer;
-/* to select icons from Materia UI, we use this selector */
+  /* to select icons from Materia UI, we use this selector */
   .MuiSvgIcon-root {
     color: gray;
   }
-  :hover{
+  :hover {
     background-color: #eff2f5;
     border-radius: 10px;
     border-bottom: none;
-    .MuiSvgIcon-root{
+    .MuiSvgIcon-root {
       color: #2e81f4;
     }
   }
-
 `;
 
 export const HeaderMiddle = styled.div`
@@ -62,7 +61,7 @@ export const HeaderMiddle = styled.div`
   justify-content: center;
   .active {
     border-bottom: 4px solid #2e81f4;
-    :nth-child(1){
+    :nth-child(1) {
       color: #2e81f4;
     }
     :hover {
@@ -80,5 +79,16 @@ export const HeaderInfo = styled.div`
   align-items: center;
   h4 {
     margin-left: 10px;
+  }
+`;
+
+export const SignOutButton = styled(ExitToAppIcon)``;
+
+export const IconButtonSignOut = styled(IconButton)`
+  * {
+    color: red;
+  }
+  span {
+    font-size: 0.8em;
   }
 `;

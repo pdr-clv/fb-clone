@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Avatar } from '@material-ui/core';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
@@ -11,40 +10,37 @@ export const MessageSenderStyles = styled.div`
   background-color: white;
   border-radius: 15px;
   width: 100%;
-  box-shadow: 0px 5px 7px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
 `;
 
 export const MessageSenderHeader = styled.div`
-  display:flex;
+  display: flex;
   border-bottom: 1px solid #eff2f5;
   padding: 15px;
   form {
     flex: 1;
     display: flex;
 
-    input{
-    outline: none;
-    border: none;
-    border-radius: 999px;
-    margin: 0 10px;
-    padding: 5px 20px;
-    background-color: rgba(125,125,125,0.3);
+    input {
+      outline: none;
+      border: none;
+      border-radius: 999px;
+      margin: 0 10px;
+      padding: 5px 20px;
+      background-color: rgba(125, 125, 125, 0.3);
     }
-      
-    input:nth-child(1){
+
+    input:nth-child(1) {
       flex: 1;
     }
-    
     button {
-    display: none;
+      display: none;
     }
   }
-
-
 `;
 
 export const MessageSenderBottom = styled.div`
-  display:flex;
+  display: flex;
   justify-content: space-evenly;
   .MuiSvgIcon-root {
     font-size: 2em;
@@ -54,21 +50,18 @@ export const MessageSenderBottom = styled.div`
     display: flex;
     align-items: center;
     color: gray;
-    margin:5px;
+    margin: 5px;
 
     :hover {
-    background-color: rgba(125,125,125,0.2);
-    border-radius:20px;
-  }
+      background-color: rgba(125, 125, 125, 0.2);
+      border-radius: 20px;
+    }
   }
   h3 {
     font-size: medium;
     margin-left: 10px;
     cursor: pointer;
   }
-`;
-
-export const AvatarPic = styled(Avatar)`
 `;
 
 export const VideocamPic = styled(VideocamIcon)`

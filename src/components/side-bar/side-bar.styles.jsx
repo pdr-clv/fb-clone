@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SideBarStyles = styled.div`
   padding: 25px 10px;
@@ -6,15 +6,15 @@ export const SideBarStyles = styled.div`
 `;
 
 export const SideBarRowStyles = styled.div`
-  display:flex;
+  display: flex;
   align-items: center;
   padding: 10px;
   cursor: pointer;
-  .MuiSvgIcon-root{
+  .MuiSvgIcon-root {
     font-size: xx-large;
     color: #2e81f4;
   }
-  h4{
+  h4 {
     margin-left: 20px;
     font-weight: 600;
   }

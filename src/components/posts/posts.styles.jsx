@@ -23,6 +23,8 @@ export const PostTop = styled.div`
   align-items: center;
   padding: 15px;
 
+`;
+export const PostTopInfo = styled.div`
   h3 {
     font-size: medium;
   }
@@ -32,7 +34,6 @@ export const PostTop = styled.div`
     color: gray;
   }
 `;
-export const PostTopInfo = styled.div``;
 export const PostBottom = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;

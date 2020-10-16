@@ -1,12 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const AppStyles = styled.div`
-  background-color: rgba(226,228,234,0.7);
+  background-color: rgba(226, 228, 234, 0.7);
 `;
 
 export const AppBody = styled.div`
-  display:flex;
-`;
-
-export const FeedBody = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
