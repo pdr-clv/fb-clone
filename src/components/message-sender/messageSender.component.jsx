@@ -10,7 +10,7 @@ import {
   InsertEmoticonPic,
 } from './messageSender.styles';
 
-const MessageSender = () => {
+const MessageSender = ({ photoURL }) => {
   const [input, setInput] = useState('');
   const [imgUrl, setImgUrl] = useState('');
 
@@ -27,7 +27,7 @@ const MessageSender = () => {
   return (
     <MessageSenderStyles>
       <MessageSenderHeader>
-        <Avatar src='https://res.cloudinary.com/dg5pircnj/image/upload/v1597479069/PortfolioApp/profile-picture_wneqqc.jpg' />
+        <Avatar src={photoURL} />
         <form>
           <input
             value={input}

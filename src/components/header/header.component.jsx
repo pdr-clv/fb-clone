@@ -25,12 +25,14 @@ import {
   IconButtonSignOut,
 } from './header.styles';
 
-const Header = () => {
+const Header = ({ displayName, photoURL }) => {
   return (
     <HeaderStyles>
       <HeaderLeft>
         <img
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/800px-Facebook_f_logo_%282019%29.svg.png'
+          src={
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/800px-Facebook_f_logo_%282019%29.svg.png'
+          }
           alt=''
         />
         <HeaderInput>
@@ -57,8 +59,8 @@ const Header = () => {
       </HeaderMiddle>
       <HeaderRight>
         <HeaderInfo>
-          <Avatar src='https://res.cloudinary.com/dg5pircnj/image/upload/v1597479069/PortfolioApp/profile-picture_wneqqc.jpg' />
-          <h4>Pedro Calvo</h4>
+          <Avatar src={photoURL} />
+          <h4>{displayName}</h4>
         </HeaderInfo>
         <IconButtonSignOut onClick={() => auth.signOut()}>
           <SignOutButton alt='Sign Out' />

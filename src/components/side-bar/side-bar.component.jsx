@@ -9,19 +9,22 @@ import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 
-const SideBar = () => {
+const SideBar = ({ displayName, photoURL }) => {
   return (
     <SideBarStyles>
-      <SideBarRow src='https://res.cloudinary.com/dg5pircnj/image/upload/v1597479069/PortfolioApp/profile-picture_wneqqc.jpg' title='Pedro Calvo'/>
-      <SideBarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
-      <SideBarRow Icon={EmojiFlagsIcon} title='Pages'/>
-      <SideBarRow Icon={PeopleIcon} title='Friends'/>
-      <SideBarRow Icon={ChatIcon} title='Messenger'/>
-      <SideBarRow Icon={StorefrontIcon} title='MarketPlace'/>
-      <SideBarRow Icon={VideoLibraryIcon} title='Videos'/>
-      <SideBarRow Icon={ExpandMoreOutlinedIcon} title='Marketplace'/>
+      <SideBarRow src={photoURL} title={displayName} />
+      <SideBarRow
+        Icon={LocalHospitalIcon}
+        title='COVID-19 Information Center'
+      />
+      <SideBarRow Icon={EmojiFlagsIcon} title='Pages' />
+      <SideBarRow Icon={PeopleIcon} title='Friends' />
+      <SideBarRow Icon={ChatIcon} title='Messenger' />
+      <SideBarRow Icon={StorefrontIcon} title='MarketPlace' />
+      <SideBarRow Icon={VideoLibraryIcon} title='Videos' />
+      <SideBarRow Icon={ExpandMoreOutlinedIcon} title='Marketplace' />
     </SideBarStyles>
-  )
-}
+  );
+};
 
 export default SideBar;

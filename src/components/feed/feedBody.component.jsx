@@ -4,15 +4,14 @@ import StoryReel from '../storyReel/storyReel.component';
 import MessageSender from '../message-sender/messageSender.component';
 import Posts from '../posts/posts.component';
 
-const Feed = () => {
+const Feed = ({ photoURL }) => {
   return (
     <FeedStyles>
       <StoryReel />
-      <MessageSender />
+      <MessageSender photoURL={photoURL} />
       <Posts></Posts>
     </FeedStyles>
-    
-  )
-}
+  );
+};
 
 export default Feed;
