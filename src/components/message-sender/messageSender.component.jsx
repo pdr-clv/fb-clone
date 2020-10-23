@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Avatar } from '@material-ui/core';
 
+import { addPost } from '../../firebase/firebase.utils';
+
 import {
   MessageSenderStyles,
   MessageSenderHeader,
@@ -10,15 +12,17 @@ import {
   InsertEmoticonPic,
 } from './messageSender.styles';
 
-const MessageSender = ({ photoURL }) => {
+const MessageSender = ({ userId, photoURL, displayName }) => {
   const [input, setInput] = useState('');
-  const [imgUrl, setImgUrl] = useState('');
+  const [imgPost, setImgUrl] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //we will set backEnd features.
-    console.log('Submitting....');
+    const data = { textPost: input, imgPost, userId, displayName, photoURL };
+
+    //check if textPost and imgPostis not empty or imgPost is not empty, before posting
+    if (data.textPost !== '' || imgPost !== '') addPost(data);
 
     setInput('');
     setImgUrl('');
@@ -35,7 +39,7 @@ const MessageSender = ({ photoURL }) => {
             placeholder="What's on your mind?"
           />
           <input
-            value={imgUrl}
+            value={imgPost}
             placeholder='Paste here the url where img is '
             onChange={(e) => setImgUrl(e.target.value)}
           />

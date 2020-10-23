@@ -11,45 +11,47 @@ import {
   ChatIcon,
   NearIcon,
   AccountIcon,
-  ExpandIcon
+  ExpandIcon,
 } from './posts.styles';
 
-const PostItem = ({ profilePic, image, username, timestamp, message }) => {
+const PostItem = ({ photoURL, imgPost, displayName, createdAt, textPost }) => {
+  const timeStamp = new Date(createdAt.seconds * 1000).toLocaleString();
+
   return (
     <PostItemStyles>
       <PostTop>
-        <AvatarPic src={profilePic} />
+        <AvatarPic src={photoURL} />
         <PostTopInfo>
-          <h3>{username}</h3>
-          <p>{timestamp}</p>
+          <h3>{displayName}</h3>
+          <p>{timeStamp}</p>
         </PostTopInfo>
       </PostTop>
       <PostBottom>
-        <p>{message}</p>
+        <p>{textPost}</p>
       </PostBottom>
       <PostImage>
-        <img src={image} alt=""/>
+        <img src={imgPost} alt='' />
       </PostImage>
       <PostOptions>
         <div>
-          <ThumbUp/>
+          <ThumbUp />
           <p>Like</p>
         </div>
         <div>
-          <ChatIcon/>
+          <ChatIcon />
           <p>Comment</p>
         </div>
         <div>
-          <NearIcon/>
+          <NearIcon />
           <p>Share</p>
         </div>
         <div>
-          <AccountIcon/>
-          <ExpandIcon/>
+          <AccountIcon />
+          <ExpandIcon />
         </div>
       </PostOptions>
     </PostItemStyles>
-  )
+  );
 };
 
 export default PostItem;

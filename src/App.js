@@ -9,61 +9,40 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { AppStyles } from './App.styles';
 
 const App = () => {
-  /*const innerUser = {
-    id: null,
+  const innerUser = {
+    userId: null,
     displayName: '',
     email: '',
     photoURL: '',
-  };*/
+  };
+  const [currentUser, setCurrentUser] = useState(innerUser);
   const [loading, setLoading] = useState(true);
-  const [userId, setUserId] = useState('');
-  const [displayName, setDisplayName] = useState('');
-  const [email, setEmail] = useState('');
-  const [photoURL, setPhotoURL] = useState('');
 
   useEffect(() => {
     const unlisten = auth.onAuthStateChanged(async (userAuth) => {
-      setLoading(false);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot((snapShot) => {
-          /*const user = {
-            id: snapShot.id,
-            ...snapShot.data(),
-          };*/
           const data = snapShot.data();
-          setUserId(snapShot.id);
-          setDisplayName(data.displayName);
-          setEmail(data.email);
-          setPhotoURL(data.photoURL);
+          setCurrentUser({ userId: snapShot.id, ...data });
+          setLoading(false);
         });
       } else {
-        setUserId('');
-        setDisplayName('');
-        setEmail('');
-        setPhotoURL('');
+        setCurrentUser(innerUser);
+        setLoading(false);
       }
     });
     return () => {
       unlisten();
     };
-  });
-
+    // eslint-disable-next-line
+  }, []);
   const AppStylesWithSpinner = WithSpinner(AppStyles);
 
   return (
     <AppStylesWithSpinner isLoading={loading}>
-      {userId ? (
-        <MainPage
-          userId={userId}
-          displayName={displayName}
-          email={email}
-          photoURL={photoURL}
-        />
-      ) : (
-        <SignInPage />
-      )}
+      {currentUser.userId ? <MainPage {...currentUser} /> : <SignInPage />}
     </AppStylesWithSpinner>
   );
 };

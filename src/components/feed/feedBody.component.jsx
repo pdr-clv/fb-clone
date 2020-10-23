@@ -4,11 +4,15 @@ import StoryReel from '../storyReel/storyReel.component';
 import MessageSender from '../message-sender/messageSender.component';
 import Posts from '../posts/posts.component';
 
-const Feed = ({ photoURL }) => {
+const Feed = ({ userId, photoURL, displayName }) => {
   return (
     <FeedStyles>
       <StoryReel />
-      <MessageSender photoURL={photoURL} />
+      <MessageSender
+        userId={userId}
+        photoURL={photoURL}
+        displayName={displayName}
+      />
       <Posts></Posts>
     </FeedStyles>
   );

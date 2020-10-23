@@ -47,4 +47,22 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+export const addPost = async (dataPost) => {
+  const { textPost, imgPost, userId, displayName, photoURL } = dataPost;
+  const createdAt = new Date();
+  const newPostRef = firestore.collection('posts').doc();
+  try {
+    await newPostRef.set({
+      textPost,
+      imgPost,
+      userId,
+      displayName,
+      photoURL,
+      createdAt,
+    });
+  } catch (err) {
+    console.log('error creating post', err.message);
+  }
+};
+
 export default firebase;
