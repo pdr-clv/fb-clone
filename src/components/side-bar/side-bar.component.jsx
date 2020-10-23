@@ -9,7 +9,10 @@ import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 
-const SideBar = ({ displayName, photoURL }) => {
+import { connect } from 'react-redux';
+
+const SideBar = ({ currentUser }) => {
+  const { displayName, photoURL } = currentUser;
   return (
     <SideBarStyles>
       <SideBarRow src={photoURL} title={displayName} />
@@ -27,4 +30,8 @@ const SideBar = ({ displayName, photoURL }) => {
   );
 };
 
-export default SideBar;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(SideBar);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Avatar } from '@material-ui/core';
+import { connect } from 'react-redux';
 
 import { addPost } from '../../firebase/firebase.utils';
 
@@ -12,7 +13,11 @@ import {
   InsertEmoticonPic,
 } from './messageSender.styles';
 
-const MessageSender = ({ userId, photoURL, displayName }) => {
+const MessageSender = ({ currentUser }) => {
+  const { userId, photoURL, displayName } = currentUser;
+
+  const name = displayName.split(' ')[0];
+
   const [input, setInput] = useState('');
   const [imgPost, setImgUrl] = useState('');
 
@@ -36,7 +41,7 @@ const MessageSender = ({ userId, photoURL, displayName }) => {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="What's on your mind?"
+            placeholder={`What's on your mind ${name}?`}
           />
           <input
             value={imgPost}
@@ -66,4 +71,8 @@ const MessageSender = ({ userId, photoURL, displayName }) => {
   );
 };
 
-export default MessageSender;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(MessageSender);

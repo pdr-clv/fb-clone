@@ -7,13 +7,13 @@ import Widgets from '../widgets/widgets.component';
 
 import { MainPageBody } from './main-page.styles';
 
-const MainPage = ({ userId, displayName, photoURL }) => {
+const MainPage = () => {
   return (
     <div>
-      <Header displayName={displayName} photoURL={photoURL} />
+      <Header />
       <MainPageBody>
-        <SideBar displayName={displayName} photoURL={photoURL} />
-        <Feed userId={userId} photoURL={photoURL} displayName={displayName} />
+        <SideBar />
+        <Feed />
         <Widgets />
       </MainPageBody>
     </div>

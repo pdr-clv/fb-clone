@@ -3,19 +3,15 @@ import React, { useState, useEffect } from 'react';
 import MainPage from './components/main-page/main-page.component';
 import SignInPage from './components/sign-in/sign-in.component';
 import WithSpinner from './components/with-spinner/with-spinner.component';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user.actions';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { AppStyles } from './App.styles';
 
-const App = () => {
-  const innerUser = {
-    userId: null,
-    displayName: '',
-    email: '',
-    photoURL: '',
-  };
-  const [currentUser, setCurrentUser] = useState(innerUser);
+const App = (props) => {
+  const { currentUser, setCurrentUser } = props;
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +25,12 @@ const App = () => {
           setLoading(false);
         });
       } else {
-        setCurrentUser(innerUser);
+        setCurrentUser({
+          userId: null,
+          displayName: '',
+          email: '',
+          photoURL: '',
+        });
         setLoading(false);
       }
     });
@@ -42,9 +43,17 @@ const App = () => {
 
   return (
     <AppStylesWithSpinner isLoading={loading}>
-      {currentUser.userId ? <MainPage {...currentUser} /> : <SignInPage />}
+      {currentUser.userId ? <MainPage /> : <SignInPage />}
     </AppStylesWithSpinner>
   );
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -11,6 +11,8 @@ import ForumIcon from '@material-ui/icons/Forum';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import { connect } from 'react-redux';
+
 import { auth } from '../../firebase/firebase.utils';
 
 import {
@@ -25,7 +27,9 @@ import {
   IconButtonSignOut,
 } from './header.styles';
 
-const Header = ({ displayName, photoURL }) => {
+const Header = ({ currentUser }) => {
+  //currentUser is coming from mapStateToProps from redux. It is comming an object with { currentUser, dispatch } this is why we have to add {currentUser}
+  const { displayName, photoURL } = currentUser;
   return (
     <HeaderStyles>
       <HeaderLeft>
@@ -83,4 +87,8 @@ const Header = ({ displayName, photoURL }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
