@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import MainPage from './components/main-page/main-page.component';
 import SignInPage from './components/sign-in/sign-in.component';
 import WithSpinner from './components/with-spinner/with-spinner.component';
+import SignUpPage from './components/sign-up/sign-up.component';
+import { Route,Switch,Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 
@@ -43,7 +45,17 @@ const App = (props) => {
 
   return (
     <AppStylesWithSpinner isLoading={loading}>
-      {currentUser.userId ? <MainPage /> : <SignInPage />}
+      <Switch>
+        <Route 
+          exact path='/' 
+          render={() => 
+            currentUser.userId ? (<MainPage />) : (<SignInPage />)
+          } />
+        <Route 
+          exact path='/signup' 
+          render={() => 
+            currentUser.userId ? (<Redirect to ='/'/>) : (<SignUpPage />)} />
+      </Switch>
     </AppStylesWithSpinner>
   );
 };
