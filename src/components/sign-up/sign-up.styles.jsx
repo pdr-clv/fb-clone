@@ -1,27 +1,46 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const buttonStyles = css`
+  background-color: rgb(59, 89, 152);
+  color:white;
+  font-size: 18px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100%;
+`;
 
 export const SignInStyles = styled.div`
   height: 100vh;
-  width: 100%;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(210,210,210);
   display: grid;
   place-items: center;
-  color: black;
+  color: rgb(59, 89, 152);
 
   div {
-    * {
-      width: 100%;
+    h1 {
+      text-align: center;
     }
     justify-content: center;
-
+    width: 90%;
+    max-width:450px;
+    
+    form {
+      border-bottom: 1px solid grey;
+      margin-bottom: 10px;
+      *{
+        width: 100%;
+      }
+    }
     input[type='submit'] {
-      margin-top: 15px;
-      padding: 10px;
-      background-color: white;
-      color: rgb(59, 89, 152);
-      font-size: 1.4em;
-      border-radius: 5px;
-      cursor: pointer;
+      ${buttonStyles}
+    }
+    @media (max-width: 500px) { 
+      h1 {
+
+        font-size:24px;
+      }
     }
   }
 `;

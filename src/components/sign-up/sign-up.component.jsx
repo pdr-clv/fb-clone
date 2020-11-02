@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import { Link } from 'react-router-dom';
 
@@ -81,8 +81,8 @@ const SignUpPage = () => {
 					label='Confirm Password'
           required />
           <input type="submit" value='Submit'/>
-          <Link to='/'>Go to Sign In Page</Link>
         </form>
+        <Link to='/'>Go to Sign In Page</Link>
       </div>
     </SignInStyles>
   );
