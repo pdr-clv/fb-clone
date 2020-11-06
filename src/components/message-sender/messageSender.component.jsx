@@ -11,47 +11,63 @@ import {
   VideocamPic,
   PhotoLibraryPic,
   InsertEmoticonPic,
+  AvatarContainer,
+  SendPic
 } from './messageSender.styles';
 
 const MessageSender = ({ currentUser }) => {
   const { userId, photoURL, displayName } = currentUser;
 
-  const name = displayName.split(' ')[0];
+  const [postDetails,setPostDetails] = useState({
+    inputText: '',
+    imgURL: ''
+  });
 
-  const [input, setInput] = useState('');
-  const [imgPost, setImgUrl] = useState('');
+  const handleChange = (event) => {
+    const {name, value} = event.target
+    setPostDetails({...postDetails,[name]:value});
+  };
+
+  const name = displayName.split(' ')[0];
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = { textPost: input, imgPost, userId, displayName, photoURL };
+    const data = { textPost: inputText, imgPost: imgURL, userId, displayName, photoURL };
 
     //check if textPost and imgPostis not empty or imgPost is not empty, before posting
-    if (data.textPost !== '' || imgPost !== '') addPost(data);
+    if (data.textPost !== '' || imgURL !== '') addPost(data);
 
-    setInput('');
-    setImgUrl('');
+    setPostDetails({
+      inputText: '',
+      imgURL: ''
+    });
   };
-
+  const {inputText, imgURL } = postDetails;
   return (
     <MessageSenderStyles>
-      <MessageSenderHeader>
+    <MessageSenderHeader>
+      <AvatarContainer>
         <Avatar src={photoURL} />
-        <form>
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder={`What's on your mind ${name}?`}
-          />
-          <input
-            value={imgPost}
-            placeholder='Paste here the url where img is '
-            onChange={(e) => setImgUrl(e.target.value)}
-          />
-          <button onClick={handleSubmit} type='submit'>
-            Hidden submit
-          </button>
-        </form>
+        <span>{ displayName }</span>
+      </AvatarContainer>
+      <form>
+        <input
+          name='inputText'
+          value={inputText}
+          onChange={handleChange}
+          placeholder={`What's on your mind ${name}?`}
+        />
+        <input
+          name='imgURL'
+          value={imgURL}
+          placeholder='Paste here the url where img is '
+          onChange={handleChange}
+        />
+        <button onClick={handleSubmit} type='submit'>
+          <SendPic postdetails={postDetails}/>
+        </button>
+      </form>
       </MessageSenderHeader>
       <MessageSenderBottom>
         <div>

@@ -5,6 +5,7 @@ import FlagIcon from '@material-ui/icons/Flag';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Avatar, IconButton } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ForumIcon from '@material-ui/icons/Forum';
@@ -23,8 +24,8 @@ import {
   HeaderInput,
   IconMiddle,
   HeaderInfo,
-  SignOutButton,
   IconButtonSignOut,
+  IconButtons
 } from './header.styles';
 
 const Header = ({ currentUser }) => {
@@ -67,21 +68,23 @@ const Header = ({ currentUser }) => {
           <h4>{displayName}</h4>
         </HeaderInfo>
         <IconButtonSignOut onClick={() => auth.signOut()}>
-          <SignOutButton alt='Sign Out' />
-          <span>Sign Out</span>
+          <ExitToAppIcon alt='Sign Out' />
+          <span className='sign-out-text'>Sign Out</span>
         </IconButtonSignOut>
-        <IconButton>
-          <AddIcon />
-        </IconButton>
-        <IconButton>
-          <ForumIcon />
-        </IconButton>
-        <IconButton>
-          <NotificationsActiveIcon />
-        </IconButton>
-        <IconButton>
-          <ExpandMoreIcon />
-        </IconButton>
+        <IconButtons>
+          <IconButton>
+            <AddIcon />
+          </IconButton>
+          <IconButton>
+            <ForumIcon />
+          </IconButton>
+          <IconButton>
+            <NotificationsActiveIcon />
+          </IconButton>
+          <IconButton>
+            <ExpandMoreIcon />
+          </IconButton>
+        </IconButtons>
       </HeaderRight>
     </HeaderStyles>
   );

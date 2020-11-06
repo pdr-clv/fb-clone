@@ -67,6 +67,20 @@ export const PostOptions = styled.div`
       border-radius: 10px;
     }
   }
+  @media only screen and (max-width: 410px) {
+    padding: 5px;
+    div:nth-last-child(1) {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 325px) {
+    div:nth-last-child(2) {
+      display: none;
+    }
+  }
+
+
 `;
 export const ThumbUp = styled(ThumbUpIcon)``;
 export const ChatIcon = styled(ChatBubbleOutlineIcon)``;

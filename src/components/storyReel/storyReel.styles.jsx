@@ -2,7 +2,18 @@ import styled from 'styled-components';
 import { Avatar } from '@material-ui/core';
 
 export const StoryReelStyles = styled.div`
+  @media (max-width: 660px) { 
+    width: 97vw;
+    height: 220px;
+    overflow-x: scroll;
+  }
+`;
+
+export const Container = styled.div`
+  flex: 1;
   display: flex;
+  flex-wrap: wrap;
+  width: 660px;
 `;
 
 export const StoryReelItemStyles = styled.div`
@@ -29,10 +40,19 @@ export const StoryReelItemStyles = styled.div`
   :hover {
     transform: scale(1.07);
   }
-
 `;
 
 export const AvatarPic = styled(Avatar)`
-  margin:10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   border: 3px solid #2e81f4;
+`;
+
+export const StoryReelItemContainer = styled.div`
+  width: 120px;
+  height: 200px;
+  border-radius: 10px;
+  margin-right: 10px;
+  overflow: hidden;
 `;

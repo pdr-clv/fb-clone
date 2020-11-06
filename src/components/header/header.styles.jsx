@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 import { IconButton } from '@material-ui/core';
 
 export const HeaderStyles = styled.div`
@@ -11,6 +11,15 @@ export const HeaderStyles = styled.div`
   z-index: 100;
   top: 0;
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+
+  @media only screen and (max-width: 450px) {
+    padding: 5px;
+  }
+
+  @media only screen and (max-width: 350px) {
+    padding: 5px;
+  }
+
 `;
 
 export const HeaderLeft = styled.div`
@@ -18,6 +27,9 @@ export const HeaderLeft = styled.div`
   justify-content: space-evenly;
   img {
     height: 40px;
+  }
+  @media only screen and (max-width: 860px) {
+    display:none;
   }
 `;
 
@@ -34,9 +46,13 @@ export const HeaderInput = styled.div`
     background-color: transparent;
     outline-width: 0;
   }
+  @media only screen and (max-width: 1040px) {
+      display:none;
+  }
 `;
 
 export const IconMiddle = styled.div`
+  
   display: flex;
   align-items: center;
   padding: 0 30px;
@@ -53,6 +69,11 @@ export const IconMiddle = styled.div`
       color: #2e81f4;
     }
   }
+
+  @media only screen and (max-width: 665px) {
+    padding: 0 10px;
+  }
+
 `;
 
 export const HeaderMiddle = styled.div`
@@ -68,10 +89,22 @@ export const HeaderMiddle = styled.div`
       border-bottom: none;
     }
   }
+  @media only screen and (max-width: 665px) {
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 350px) {
+    .MuiSvgIcon-root {
+    font-size: 1.4em;
+    }
+  }
+
+
 `;
 
 export const HeaderRight = styled.div`
   display: flex;
+
 `;
 
 export const HeaderInfo = styled.div`
@@ -79,16 +112,35 @@ export const HeaderInfo = styled.div`
   align-items: center;
   h4 {
     margin-left: 10px;
+
+    @media only screen and (max-width: 720px) {
+      display:none;
+    }
+  }
+
+  @media only screen and (max-width: 410px) {
+    display:none;
   }
 `;
 
-export const SignOutButton = styled(ExitToAppIcon)``;
-
 export const IconButtonSignOut = styled(IconButton)`
-  * {
+  
+  .MuiSvgIcon-root {
     color: red;
+    font-size: 1.4em;
   }
-  span {
+  span.sign-out-text {
+    color: red;
     font-size: 0.8em;
+    @media only screen and (max-width: 720px) {
+      display: none;
+    }
   }
+`;
+//we will not display these buttons after 1240px.
+export const IconButtons = styled.div`
+  display:flex;
+  @media only screen and (max-width: 1240px) {
+    display:none;
+  } 
 `;

@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const SideBarStyles = styled.div`
   padding: 25px 10px;
   flex: 0.33;
+  @media only screen and (max-width: 850px) {
+    display:none;
+  }
 `;
 
 export const SideBarRowStyles = styled.div`
