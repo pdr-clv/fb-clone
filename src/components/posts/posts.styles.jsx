@@ -38,6 +38,17 @@ export const PostBottom = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 15px 25px;
+  p {
+    font-size: 1.4em;
+  }
+  @media only screen and (max-width: 550px) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    p {
+      font-size: 1em;
+    }
+  }
 `;
 export const PostImage = styled.div`
   img {

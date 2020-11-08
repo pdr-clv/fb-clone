@@ -28,6 +28,7 @@ export const MessageSenderHeader = styled.div`
       margin: 0 10px;
       padding: 5px 20px;
       background-color: rgba(125, 125, 125, 0.2);
+      font-size: 1.2em;
     }
     input:nth-child(1) {
       flex: 1;
@@ -49,7 +50,7 @@ export const MessageSenderHeader = styled.div`
       position: relative;
       input {
         margin: 10px;
-        
+        font-size: 1em;
       }
       input:nth-child(1) {
         padding: 5px 35px 5px 20px;
