@@ -36,7 +36,7 @@ const Header = ({ currentUser }) => {
       <HeaderLeft>
         <img
           src={
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/800px-Facebook_f_logo_%282019%29.svg.png'
+            'https://res.cloudinary.com/dg5pircnj/image/upload/v1604990635/fb-clone/facebook-antifaz192_kyp0z8.png'
           }
           alt=''
         />

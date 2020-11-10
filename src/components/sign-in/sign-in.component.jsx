@@ -6,7 +6,7 @@ import {
   signInWithGoogle,
 } from '../../firebase/firebase.utils';
 
-import { SignInStyles,SubmitInput } from './sign-in.styles';
+import { SignInStyles,SubmitInput, HeadDiv } from './sign-in.styles';
 
 const SignInPage = () => {
   const [logInDetails,setLogInDetails] = useState({
@@ -40,7 +40,8 @@ const SignInPage = () => {
   return (
     <SignInStyles>
       <div>
-        <h1>Log In to FacebookClone</h1>
+        <HeadDiv><img src="https://res.cloudinary.com/dg5pircnj/image/upload/v1604990635/fb-clone/facebook-antifaz192_kyp0z8.png" alt=""/>
+        <h1>Log In to FacebookClone</h1></HeadDiv>
         <form action="" onSubmit={handleSubmit}>
           <FormInput type='email'
 					name='email'

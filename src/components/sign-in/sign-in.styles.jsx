@@ -18,10 +18,8 @@ export const SignInStyles = styled.div`
   place-items: center;
   color: rgb(59, 89, 152);
 
+
   div {
-    h1 {
-      text-align: center;
-    }
     justify-content: center;
     width: 90%;
     max-width:450px;
@@ -38,14 +36,32 @@ export const SignInStyles = styled.div`
       ${buttonStyles}
     }
     @media (max-width: 500px) { 
-      h1 {
-
-        font-size:20px;
-      }
       h3 {
-        font-size: 18px;
+        font-size: 14px;
       }
       
+    }
+  }
+`;
+
+export const HeadDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 75px;
+    text-align: center;
+    margin-right: 15px;
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+  @media (max-width: 500px) { 
+    img {
+      width: 50px;
+    }
+    h1 {
+      font-size:1em;
     }
   }
 `;

@@ -39,7 +39,7 @@ export const PostBottom = styled.div`
   margin-bottom: 10px;
   padding: 15px 25px;
   p {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
   @media only screen and (max-width: 550px) {
     margin-top: 5px;
